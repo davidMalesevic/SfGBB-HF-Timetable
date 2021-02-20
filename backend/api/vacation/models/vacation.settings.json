@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "vacations",
+  "info": {
+    "name": "Vacation",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "VacationStartEnd": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.start-end"
+    }
+  }
+}

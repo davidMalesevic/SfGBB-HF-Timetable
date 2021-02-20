@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_sections_blocked_days",
+  "info": {
+    "name": "blockedDays",
+    "icon": "calendar-times",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "sdf": {
+      "type": "boolean"
+    }
+  }
+}
