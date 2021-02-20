@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/blockers",
+      "handler": "blocker.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/blockers/count",
+      "handler": "blocker.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/blockers/:id",
+      "handler": "blocker.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/blockers",
+      "handler": "blocker.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/blockers/:id",
+      "handler": "blocker.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/blockers/:id",
+      "handler": "blocker.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

@@ -1,8 +1,8 @@
 {
   "kind": "collectionType",
-  "collectionName": "vacations",
+  "collectionName": "degree_plans",
   "info": {
-    "name": "Vacation",
+    "name": "DegreePlan",
     "description": ""
   },
   "options": {
@@ -11,10 +11,13 @@
     "draftAndPublish": true
   },
   "attributes": {
-    "VacationStartEnd": {
+    "degree": {
+      "model": "degree"
+    },
+    "Classes": {
       "type": "component",
-      "repeatable": false,
-      "component": "sections.start-end"
+      "repeatable": true,
+      "component": "sections.class"
     },
     "Name": {
       "type": "string"

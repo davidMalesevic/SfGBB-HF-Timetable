@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "semesters",
+  "info": {
+    "name": "Semester"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "StartEnd": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.start-end"
+    },
+    "degree_plans": {
+      "collection": "semester-plan"
+    },
+    "blockers": {
+      "collection": "blocker"
+    },
+    "vacations": {
+      "collection": "vacation"
+    }
+  }
+}

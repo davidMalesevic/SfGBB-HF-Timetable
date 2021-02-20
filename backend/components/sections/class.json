@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_sections_classes",
+  "info": {
+    "name": "Class",
+    "icon": "boxes",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Classroom": {
+      "type": "string"
+    },
+    "Subjects": {
+      "type": "component",
+      "repeatable": true,
+      "component": "sections.subject"
+    },
+    "Project": {
+      "type": "component",
+      "repeatable": true,
+      "component": "sections.project-week"
+    }
+  }
+}

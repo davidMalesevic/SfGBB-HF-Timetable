@@ -1,8 +1,8 @@
 {
   "kind": "collectionType",
-  "collectionName": "vacations",
+  "collectionName": "blockers",
   "info": {
-    "name": "Vacation",
+    "name": "Blocker",
     "description": ""
   },
   "options": {
@@ -11,10 +11,14 @@
     "draftAndPublish": true
   },
   "attributes": {
-    "VacationStartEnd": {
+    "Blocked": {
       "type": "component",
-      "repeatable": false,
-      "component": "sections.start-end"
+      "repeatable": true,
+      "component": "sections.blocked-days"
+    },
+    "users_permissions_user": {
+      "plugin": "users-permissions",
+      "model": "user"
     },
     "Name": {
       "type": "string"

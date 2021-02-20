@@ -1,8 +1,9 @@
 {
   "kind": "collectionType",
-  "collectionName": "workgroups",
+  "collectionName": "degrees",
   "info": {
-    "name": "Workgroup"
+    "name": "Degree",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -12,6 +13,11 @@
   "attributes": {
     "Name": {
       "type": "string"
+    },
+    "users_permissions_user": {
+      "columnName": "director",
+      "plugin": "users-permissions",
+      "model": "user"
     }
   }
 }

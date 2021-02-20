@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_sections_teachers",
+  "info": {
+    "name": "Teacher",
+    "icon": "brain"
+  },
+  "options": {},
+  "attributes": {
+    "users_permissions_user": {
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "blockers": {
+      "collection": "blocker"
+    }
+  }
+}

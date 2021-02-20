@@ -2,48 +2,48 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/workgroups",
-      "handler": "workgroup.find",
+      "path": "/semester-plans",
+      "handler": "semester-plan.find",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/workgroups/count",
-      "handler": "workgroup.count",
+      "path": "/semester-plans/count",
+      "handler": "semester-plan.count",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/workgroups/:id",
-      "handler": "workgroup.findOne",
+      "path": "/semester-plans/:id",
+      "handler": "semester-plan.findOne",
       "config": {
         "policies": []
       }
     },
     {
       "method": "POST",
-      "path": "/workgroups",
-      "handler": "workgroup.create",
+      "path": "/semester-plans",
+      "handler": "semester-plan.create",
       "config": {
         "policies": []
       }
     },
     {
       "method": "PUT",
-      "path": "/workgroups/:id",
-      "handler": "workgroup.update",
+      "path": "/semester-plans/:id",
+      "handler": "semester-plan.update",
       "config": {
         "policies": []
       }
     },
     {
       "method": "DELETE",
-      "path": "/workgroups/:id",
-      "handler": "workgroup.delete",
+      "path": "/semester-plans/:id",
+      "handler": "semester-plan.delete",
       "config": {
         "policies": []
       }

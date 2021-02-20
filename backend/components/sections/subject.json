@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_sections_subjects",
+  "info": {
+    "name": "Subject",
+    "icon": "book-reader",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "NumberOfLessons": {
+      "type": "integer"
+    },
+    "users_permissions_users": {
+      "columnName": "teacher",
+      "plugin": "users-permissions",
+      "collection": "user"
+    }
+  }
+}
