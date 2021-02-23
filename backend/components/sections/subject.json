@@ -13,10 +13,9 @@
     "NumberOfLessons": {
       "type": "integer"
     },
-    "users_permissions_users": {
+    "tutors": {
       "columnName": "teacher",
-      "plugin": "users-permissions",
-      "collection": "user"
+      "collection": "tutors"
     }
   }
 }

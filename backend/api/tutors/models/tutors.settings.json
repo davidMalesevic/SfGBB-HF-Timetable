@@ -1,8 +1,8 @@
 {
   "kind": "collectionType",
-  "collectionName": "blockers",
+  "collectionName": "tutors",
   "info": {
-    "name": "Blocker",
+    "name": "Tutor",
     "description": ""
   },
   "options": {
@@ -11,16 +11,15 @@
     "draftAndPublish": true
   },
   "attributes": {
-    "Blocked": {
-      "type": "component",
-      "repeatable": true,
-      "component": "sections.blocked-days"
-    },
-    "tutor": {
-      "model": "tutors"
-    },
     "Name": {
       "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "isBerliner": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

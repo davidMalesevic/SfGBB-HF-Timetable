@@ -35,12 +35,66 @@ img:hover {
   transition: opacity 0.25s cubic-bezier(0.39, 0.575, 0.565, 1);
 }
 
-.dayList {
+.timetable {
   display: grid;
   grid-template-columns: 50px auto auto 50px auto;
   border: 1px solid black;
 }
 
-.day {
+.date {
+  width: 20rem;
+  width: 20%;
+}
+
+.subject {
+  width: 40%;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.gridColumn {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 90vw;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+.border {
   border: 1px solid black;
+}
+
+.day {
+  display: flex;
+  flex-direction: column;
+}
+
+.col-1 {
+  grid-column-start: 1;
+  grid-column-end: 2;
+}
+
+.col-2 {
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
+
+.col-3 {
+  grid-column-start: 3;
+  grid-column-end: 4;
+}
+
+.col-4 {
+  grid-column-start: 4;
+  grid-column-end: 5;
+}
+
+.col-5 {
+  grid-column-start: 5;
+  grid-column-end: 6;
 }

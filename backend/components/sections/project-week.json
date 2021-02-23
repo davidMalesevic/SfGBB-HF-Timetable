@@ -10,9 +10,8 @@
     "Name": {
       "type": "string"
     },
-    "users_permissions_users": {
-      "plugin": "users-permissions",
-      "collection": "user"
+    "tutors": {
+      "collection": "tutors"
     },
     "StartDate": {
       "type": "date"
