@@ -15,6 +15,17 @@ function DatesInRange(startDate, endDate) {
   return [...Array(days + 1).keys()].map((i) => addDays(startDate, i));
 }
 
+function LessonBlocks(subject) {
+  console.log(subject);
+  let i = 0;
+  let lessonBlocks = [];
+  for (i = 0; i < subject.slots; i++) {
+    lessonBlocks.push({ name: subject.name, teacher: "hans" });
+  }
+
+  return lessonBlocks;
+}
+
 function LessonSlots(datesInRange, vacations) {
   const schoolDaysInRange = datesInRange.filter(
     (day) => isFriday(day) || isSaturday(day)
@@ -87,7 +98,7 @@ function CleanClasses(allClasses) {
         name: subject.Name,
         tutors: tutorsInfo,
         lessonCount: subject.NumberOfLessons,
-        blocks: subject.NumberOfLessons / 5,
+        slots: subject.NumberOfLessons / 5,
       };
       return subjectInfo;
     });
@@ -119,12 +130,18 @@ function Semester({ semester }) {
   const end = new Date(semester.StartEnd.End);
   const datesInRange = DatesInRange(start, end);
   const lessonSlots = LessonSlots(datesInRange, vacations);
-
-  console.log(semester);
-
+  const lessonSlotCount = lessonSlots.map((lessonSlot) => lessonSlot.length);
   const classes = AllClasses(semester.degree_plans);
-
   const cleanClasses = CleanClasses(classes);
+  const cleanClass = cleanClasses[0];
+  console.log(cleanClass);
+
+  const lessonBlocks = cleanClass.subjects.map((subject) => {
+    const blocks = LessonBlocks(subject);
+    return blocks;
+  });
+
+  console.log(lessonBlocks);
 
   return (
     <div key={semester.id}>
