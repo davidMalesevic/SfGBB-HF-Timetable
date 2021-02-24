@@ -5,9 +5,9 @@ import Seo from "../components/seo";
 import { fetchAPI } from "../lib/api";
 import Semester from "../components/semester";
 
-const Home = ({ articles, categories, homepage, semesters }) => {
+const Home = ({ semesters }) => {
   const publishedSemesters = semesters.map((semester) => (
-    <Semester key={semester.id} semester={semester} />
+    <Semester key={semester.Name} semester={semester} />
   ));
   return <div>{publishedSemesters}</div>;
 };
@@ -20,9 +20,8 @@ export async function getStaticProps() {
     fetchAPI("/homepage"),
     fetchAPI("/semesters"),
   ]);
-
   return {
-    props: { articles, categories, homepage, semesters },
+    props: { semesters },
     revalidate: 1,
   };
 }

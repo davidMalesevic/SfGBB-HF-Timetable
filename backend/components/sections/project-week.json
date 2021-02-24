@@ -18,6 +18,9 @@
     },
     "EndDate": {
       "type": "date"
+    },
+    "NumberOfLessons": {
+      "type": "integer"
     }
   }
 }

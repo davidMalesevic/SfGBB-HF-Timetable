@@ -8,11 +8,64 @@ import {
   isFriday,
   isSaturday,
 } from "date-fns";
-import Timetable from "./timetable";
+import Masterplan from "./masterplan";
 
 function DatesInRange(startDate, endDate) {
   const days = differenceInDays(endDate, startDate);
   return [...Array(days + 1).keys()].map((i) => addDays(startDate, i));
+}
+
+function LessonSlots(datesInRange, vacations) {
+  const schoolDaysInRange = datesInRange.filter(
+    (day) => isFriday(day) || isSaturday(day)
+  );
+
+  const allVacationDates = vacations.flatMap((vacation) => vacation.dates);
+  const vacationDates = allVacationDates.flat();
+
+  const schoolDates = schoolDaysInRange.filter(
+    (date) =>
+      !vacationDates.some((vacDate) => vacDate.getTime() === date.getTime())
+  );
+
+  const slots = schoolDates.map(function (date) {
+    if (isFriday(date)) {
+      const schoolDay = {
+        date: date,
+        slots: [
+          {
+            nr: 1,
+            subject: null,
+            tutor: null,
+          },
+          {
+            nr: 2,
+            subject: null,
+            tutor: null,
+          },
+        ],
+        class: null,
+      };
+      return schoolDay;
+    } else {
+      const schoolDay = {
+        date: date,
+        slots: [
+          {
+            nr: 1,
+            subject: null,
+            tutor: null,
+          },
+        ],
+        class: null,
+      };
+      return schoolDay;
+    }
+  });
+
+  console.log(slots);
+
+  return [schoolDates];
 }
 
 function AllClasses(degreePlans) {
@@ -20,16 +73,58 @@ function AllClasses(degreePlans) {
   return allClasses;
 }
 
+function CleanClasses(allClasses) {
+  const groupsOfStudents = allClasses.map((group, index) => {
+    const subjectsInfo = group.Subjects.map((subject) => {
+      const tutorsInfo = subject.tutors.map((tutor) => {
+        const tutorInfo = {
+          name: tutor.Name,
+          isBerliner: tutor.isBerliner,
+        };
+        return tutorInfo;
+      });
+      const subjectInfo = {
+        name: subject.Name,
+        tutors: tutorsInfo,
+        lessonCount: subject.NumberOfLessons,
+        blocks: subject.NumberOfLessons / 5,
+      };
+      return subjectInfo;
+    });
+    const groupOfStudents = {
+      index: index,
+      name: group.Name,
+      subjects: subjectsInfo,
+    };
+    return groupOfStudents;
+  });
+  return groupsOfStudents;
+}
+
 function Semester({ semester }) {
+  const vacations = semester.vacations.map((vacation) => {
+    const vacationData = {
+      name: vacation.Name,
+      dates: [
+        DatesInRange(
+          new Date(vacation.VacationStartEnd.Start),
+          new Date(vacation.VacationStartEnd.End)
+        ),
+      ],
+    };
+    return vacationData;
+  });
+
   const start = new Date(semester.StartEnd.Start);
   const end = new Date(semester.StartEnd.End);
   const datesInRange = DatesInRange(start, end);
-  const fridays = datesInRange.filter((day) => isFriday(day));
-  const saturdays = datesInRange.filter((day) => isSaturday(day));
+  const lessonSlots = LessonSlots(datesInRange, vacations);
+
   console.log(semester);
 
   const classes = AllClasses(semester.degree_plans);
-  console.log(classes);
+
+  const cleanClasses = CleanClasses(classes);
 
   return (
     <div key={semester.id}>
@@ -38,13 +133,7 @@ function Semester({ semester }) {
         {format(parseISO(semester.StartEnd.Start), "dd.MM.yyyy")} -{" "}
         {format(parseISO(semester.StartEnd.End), "dd.MM.yyyy")}
       </p>
-      <div>
-        <Timetable
-          fridays={fridays}
-          saturdays={saturdays}
-          schoolClasses={classes}
-        />
-      </div>
+      <div></div>
     </div>
   );
 }

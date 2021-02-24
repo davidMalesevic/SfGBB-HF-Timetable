@@ -2,15 +2,16 @@
   "collectionName": "components_sections_start_ends",
   "info": {
     "name": "StartEnd",
-    "icon": "calendar-alt"
+    "icon": "calendar-alt",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "Start": {
-      "type": "date"
+      "type": "datetime"
     },
     "End": {
-      "type": "date"
+      "type": "datetime"
     }
   }
 }
